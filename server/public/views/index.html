@@ -16,6 +16,8 @@
 
           <label for="releaseDate">Release Date:</label>
           <input type="date" id="currentMovieReleaseDate" name="releaseDate" ng-model="currentMovie.releaseDate" />
+          <label for="director">Director: </label>
+          <input type="text" name="director" ng-model="currentMovie.director" />
 
           <button ng-click="submitCurrentMovie()">Submit</button>
         </form>
@@ -30,18 +32,22 @@
               <label for="releaseDate">Release Date:</label>
               <input type="date" id="releaseDate" name="releaseDate" ng-model="movie.releaseDate" />
 
+              <label for="director">Director: </label>
+              <input type="text" id="director" name="director" ng-model="movie.director" />
               <button class="update" ng-click="updateMovie(movie)">Update</button>
               <button class="delete" ng-click="deleteMovie(movie._id)">Delete</button>
               <button class="comments" ng-click="showComments(movie._id)">Comments</button>
               <div ng-show="displayedMovieId == movie._id">
                 <div ng-repeat="comment in movie.comments">
                   <p>
-                    {{comment.content}}
+                    {{comment.content}} - {{comment.postedBy}}
                   </p>
                 </div>
                 <form id="commentForm">
                   <label for="comment">Comment:</label>
                   <textarea id="comment" name="comment" ng-model="newComment.content"></textarea>
+                    <label for="postedby">Posted by:</label>
+                    <input type="text" name="postedby" ng-model="newComment.postedBy" />
                   <button ng-click="submitComment(movie._id)">Submit</button>
                 </form>
               </div>

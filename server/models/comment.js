@@ -4,6 +4,7 @@ var profanityFilter = require('../modules/profanity-filter');
 
 var CommentSchema = new Schema({
   content: { type: String, required: true },
+  postedBy: String
 });
 
 CommentSchema.pre('save', function (next) {

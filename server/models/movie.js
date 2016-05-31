@@ -5,7 +5,8 @@ var CommentSchema = require('./comment').schema;
 var MovieSchema = new Schema({
   title: { type: String, required: true },
   releaseDate: Date,
-  comments: [CommentSchema]
+  comments: [CommentSchema],
+  director: String
 });
 
 var Movie = mongoose.model('Movie', MovieSchema);
